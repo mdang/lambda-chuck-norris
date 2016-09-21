@@ -1,6 +1,6 @@
 'use strict';
 
-var https = require('https');
+var http = require('http');
 
 console.log('Loading function');
 
@@ -25,6 +25,4 @@ exports.handler = (event, context, callback) => {
             });
         });
     });
-    
-    callback(null, response);
 };
