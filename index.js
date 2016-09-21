@@ -1,6 +1,6 @@
 'use strict';
 
-console.log('Loading function');
+console.log('Loading lambda-slackbot-chuck-norris');
 
 var http = require('http');
 
