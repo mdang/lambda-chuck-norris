@@ -3,9 +3,9 @@
 // https://github.com/awslabs/aws-serverless-chatbot-sample
 // http://awschatbot.devpost.com/details/resources
 
-var http = require('http');
-
 console.log('Loading function');
+
+var http = require('http');
 
 exports.handler = (event, context, callback) => {
     //console.log('Received event:', JSON.stringify(event, null, 2));
