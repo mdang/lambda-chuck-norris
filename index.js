@@ -1,5 +1,8 @@
 'use strict';
 
+// https://github.com/awslabs/aws-serverless-chatbot-sample
+// http://awschatbot.devpost.com/details/resources
+
 var http = require('http');
 
 console.log('Loading function');
