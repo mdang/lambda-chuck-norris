@@ -9,7 +9,7 @@ exports.handler = (event, context, callback) => {
     
     http.get({
         host: 'api.icndb.com',
-        path: '/jokes/random?firstName=Chuck&amp;lastName=Norris'
+        path: '/jokes/random?firstName=' + event.user_name.charAt(0).toUpperCase() + event.user_name.slice(1)
     }, function(response) {
         // Continuously update stream with data
         var body = '';
@@ -20,7 +20,7 @@ exports.handler = (event, context, callback) => {
 
             // Data reception is done, do whatever with it!
             var parsed = JSON.parse(body);
-            callback({
+            callback(null, {
                 text: parsed.value.joke
             });
         });
