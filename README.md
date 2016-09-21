@@ -1,1 +1,1 @@
-# lambda-chuck-norris
+# lambda-slackbot-chuck-norris
