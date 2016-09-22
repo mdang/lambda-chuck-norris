@@ -20,7 +20,8 @@ exports.handler = (event, context, callback) => {
             // Data reception is done, do whatever with it!
             var parsed = JSON.parse(body);
             callback(null, {
-                text: parsed.value.joke
+                text: parsed.value.joke,
+                response_type: 'in_channel', // Make the response viewable to everyone in the channel
             });
         });
     });
