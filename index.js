@@ -9,7 +9,7 @@ exports.handler = (event, context, callback) => {
     
     http.get({
         host: 'api.icndb.com',
-        path: '/jokes/random?firstName=<' + event.text + '>&lastName=&escape=javascript' // The <> turns @user_name into an actual mention
+        path: '/jokes/random?firstName=<' + event.text + '>&lastName=&escape=javascript&limitTo=[nerdy]' // The <> turns @user_name into an actual mention
         //path: '/jokes/random?firstName=' + event.user_name.charAt(0).toUpperCase() + event.user_name.slice(1) + '&lastName=&escape=javascript'
     }, function(response) {
         // Continuously update stream with data
