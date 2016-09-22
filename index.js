@@ -10,6 +10,9 @@ Requirements:
 Reference: 
 - https://api.slack.com
 - https://api.slack.com/slash-commands
+- https://github.com/awslabs/aws-serverless-chatbot-sample
+- https://aws.amazon.com/blogs/aws/enter-the-aws-serverless-chatbot-competition/
+- http://awschatbot.devpost.com/details/resources
 
 Usage: 
 /chuck [@user_name]
