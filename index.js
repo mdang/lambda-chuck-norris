@@ -2,10 +2,18 @@
 /* 
 Return a random Chuck Norris joke with a user's name instead
 
-https://api.slack.com/slash-commands
+Requirements: 
+- AWS Lambda: https://aws.amazon.com/lambda/
+- AWS API Gateway: https://aws.amazon.com/api-gateway/
+- Admin privileges to your Slack team: https://[YOUR SLACK TEAM].slack.com/apps/manage
+
+Reference: 
+- https://api.slack.com
+- https://api.slack.com/slash-commands
 
 Usage: 
 /chuck [@user_name]
+
 */
 console.log('Loading lambda-slackbot-chuck-norris');
 
@@ -31,19 +39,24 @@ exports.handler = (event, context, callback) => {
     //console.log('Received event:', JSON.stringify(event, null, 2));
     
     http.get({
+        // Chuck Norris API
         host: 'api.icndb.com',
-        path: '/jokes/random?firstName=<' + event.text + '>&lastName=&escape=javascript&limitTo=[nerdy]' // The <> turns @user_name into an actual mention
+        // The <> turns @user_name into an actual mention
+        path: '/jokes/random?firstName=<' + event.text + '>&lastName=&escape=javascript&limitTo=[nerdy]'
     }, function(response) {
-        // Continuously update stream with data
         var body = '';
+        
         response.on('data', function(d) {
             body += d;
         });
+        
         response.on('end', function() {
             var parsed = JSON.parse(body);
             callback(null, {
-                text: parsed.value.joke,  // This is the actual response shown by the bot
-                response_type: 'in_channel', // Make the response viewable to everyone in the channel
+                // This is the actual response shown by the bot
+                text: parsed.value.joke,  
+                // Make the response viewable to everyone in the channel
+                response_type: 'in_channel'
             });
         });
     });
