@@ -19,7 +19,7 @@ Usage:
 /chuck [@user_name]
 
 */
-console.log('Loading lambda-slackbot-chuck-norris');
+console.log('Loading slackbot-lambda-chuck-norris');
 
 // Since `http` is already built into Node, we don't need to zip up a file for deployment, 
 //  we can edit it inline in the console
